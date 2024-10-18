@@ -2,8 +2,8 @@ name: Maven Install on Push
 
 on:
   push:
-    branches:
-      - '**'  # Jeder branch wird berücksichtigt
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -19,4 +19,4 @@ jobs:
           java-version: '17' # In der pom.xml so vorgegeben
 
       - name: Run Maven Install
-        run: ./mvnw install
+        run: mvn --batch-mode --update-snapshots verify
