@@ -66,5 +66,29 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <!-- Jib Plugin zum Erstellen des Docker-Containers -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.3.1</version> <!-- Überprüfe die neueste Version -->
+                <configuration>
+                    <to>
+                        <!-- Name des Docker-Images -->
+                        <image>rinderle/dhbw:0.0.1-SNAPSHOT</image>
+                    </to>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>dockerBuild</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
